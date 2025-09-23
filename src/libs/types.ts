@@ -4,6 +4,7 @@ interface Student {
   lastName: string;
   program: "CPE" | "ISNE";
   courses?: number[];
+  section: string;
 }
 export type { Student };
 
