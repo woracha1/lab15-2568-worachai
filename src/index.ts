@@ -282,8 +282,8 @@ app.delete("/api/v2/courses", (req: Request, res: Response) => {
   }
 });
 
-app.listen(port, () => {
+/* app.listen(port, () => {
   console.log(`🚀 Server running on http://localhost:${port}`);
-});
+}); */
 
 export const handler = serverless(app);
