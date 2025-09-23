@@ -15,10 +15,10 @@ import {
   zStudentPostBody,
   zStudentPutBody,
   zStudentId
-} from "./schemas/studentValidator.ts";
+} from "./schemas/studentValidator.js";
 import type { Student } from "./libs/types.js";
 import type { Course } from "./libs/types.js";
-import studentRouter from "./routes/studentRoutes.ts";
+import studentRouter from "./routes/studentRoutes.js";
 import { error } from "console";
 
 const app = express();
