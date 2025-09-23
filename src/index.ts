@@ -5,6 +5,7 @@ import express, {
 } from "express";
 
 import morgan from "morgan";
+import serverless from "serverless-http";
 
 // import database
 import { students } from "./db/db.js";
@@ -34,6 +35,10 @@ app.use("/api/v2/", studentRouter);
 // Endpoints
 app.get("/", (req: Request, res: Response) => {
   res.send("API services for Student Data");
+});
+
+app.get("/api/hello", (req: Request, res: Response) => {
+  res.json({ message: "Hello from Express on Vercel!" });
 });
 
 app.get("/me", (req: Request, res: Response) => {
@@ -280,3 +285,5 @@ app.delete("/api/v2/courses", (req: Request, res: Response) => {
 app.listen(port, () => {
   console.log(`🚀 Server running on http://localhost:${port}`);
 });
+
+export const handler = serverless(app);
