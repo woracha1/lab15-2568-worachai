@@ -23,8 +23,6 @@ import courseRouter from "./routes/courseRoutes.js";
 import { error } from "console";
 
 const app = express();
-// ไม่ต้องใช้ app.listen()
-// เพราะ Vercel จะจัดการการรันเซิร์ฟเวอร์ให้เองในรูปแบบของ Serverless Function
 
 // morgan middlewares
 app.use(morgan("dev"));
@@ -288,6 +286,4 @@ app.delete("/api/v2/courses", (req: Request, res: Response) => {
   }
 });
 
-// สิ่งสำคัญที่ต้องทำคือ export default app
-// แทนที่จะใช้ serverless(app) ซึ่งอาจไม่จำเป็น
 export default app;
