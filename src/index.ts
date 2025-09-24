@@ -34,7 +34,10 @@ app.use("/api/v2/", studentRouter);
 
 // Endpoints
 app.get("/", (req: Request, res: Response) => {
-  res.send("API services for Student Data");
+  res.json({
+    success: true,
+    message: "lab 15 API service successfully"
+  });
 });
 
 app.get("/api/hello", (req: Request, res: Response) => {
