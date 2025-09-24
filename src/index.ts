@@ -8,17 +8,17 @@ import morgan from "morgan";
 import serverless from "serverless-http";
 
 // import database
-import { students } from "./db/db.js";
-import { courses } from "./db/db.js";
+import { students } from "./db/db.ts";
+import { courses } from "./db/db.ts";
 import {
   zStudentDeleteBody,
   zStudentPostBody,
   zStudentPutBody,
   zStudentId
-} from "./schemas/studentValidator.js";
-import type { Student } from "./libs/types.js";
-import type { Course } from "./libs/types.js";
-import studentRouter from "./routes/studentRoutes.js";
+} from "./schemas/studentValidator.ts";
+import type { Student } from "./libs/types.ts";
+import type { Course } from "./libs/types.ts";
+import studentRouter from "./routes/studentRoutes.ts";
 import { error } from "console";
 
 const app = express();
@@ -289,4 +289,4 @@ app.delete("/api/v2/courses", (req: Request, res: Response) => {
   console.log(`🚀 Server running on http://localhost:${port}`);
 }); */
 
-export const handler = serverless(app);
+export default serverless(app);
