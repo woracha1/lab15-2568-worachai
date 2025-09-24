@@ -19,18 +19,21 @@ import {
 import type { Student } from "./libs/types.js";
 import type { Course } from "./libs/types.js";
 import studentRouter from "./routes/studentRoutes.js";
+import courseRouter from "./routes/courseRoutes.js";
 import { error } from "console";
 
 const app = express();
-const port = 3000;
+// ไม่ต้องใช้ app.listen()
+// เพราะ Vercel จะจัดการการรันเซิร์ฟเวอร์ให้เองในรูปแบบของ Serverless Function
 
-//morgan middlewares
+// morgan middlewares
 app.use(morgan("dev"));
 
 // middlewares
 app.use(express.json());
 
 app.use("/api/v2/", studentRouter);
+app.use("/api/v2/", courseRouter);
 
 // Endpoints
 app.get("/", (req: Request, res: Response) => {
@@ -285,8 +288,6 @@ app.delete("/api/v2/courses", (req: Request, res: Response) => {
   }
 });
 
-/* app.listen(port, () => {
-  console.log(`🚀 Server running on http://localhost:${port}`);
-}); */
-
-export default serverless(app);
+// สิ่งสำคัญที่ต้องทำคือ export default app
+// แทนที่จะใช้ serverless(app) ซึ่งอาจไม่จำเป็น
+export default app;
