@@ -8,17 +8,17 @@ import morgan from "morgan";
 import serverless from "serverless-http";
 
 // import database
-import { students } from "./db/db.ts";
-import { courses } from "./db/db.ts";
+import { students } from "./db/db.js";
+import { courses } from "./db/db.js";
 import {
   zStudentDeleteBody,
   zStudentPostBody,
   zStudentPutBody,
   zStudentId
-} from "./schemas/studentValidator.ts";
-import type { Student } from "./libs/types.ts";
-import type { Course } from "./libs/types.ts";
-import studentRouter from "./routes/studentRoutes.ts";
+} from "./schemas/studentValidator.js";
+import type { Student } from "./libs/types.js";
+import type { Course } from "./libs/types.js";
+import studentRouter from "./routes/studentRoutes.js";
 import { error } from "console";
 
 const app = express();
